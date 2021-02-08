@@ -10,8 +10,10 @@ ContextProvider.propTypes = {
 
 function ContextProvider({ children }) {
   const [medias, set_medias] = useState([]);
+  // const address =
+  //   'https://raw.githubusercontent.com/StanLepunK/gallery/master/data/data.json';
   const address =
-    'https://raw.githubusercontent.com/StanLepunK/gallery/master/data/data.json';
+    'https://raw.githubusercontent.com/StanLepunK/gallery/master/data/data_scrimba.json';
   useEffect(() => {
     fetch(address)
       .then((res) => res.json())

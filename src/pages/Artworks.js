@@ -6,7 +6,7 @@ import { getClass } from '../utils';
 
 function Artworks() {
   const { medias } = useContext(Context);
-  // console.log('Artworks() medias', medias);
+  console.log('Artworks() medias', medias);
 
   const res = medias.map((elem, i) => (
     <Image key={elem.id} elem={elem} className={getClass(i)} />
