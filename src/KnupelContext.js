@@ -18,7 +18,7 @@ function ContextProvider({ children }) {
       .then((data) => set_medias(data));
   }, []);
 
-  console.log('ContextProvider() medias', medias);
+  // console.log('ContextProvider() medias', medias);
   return <Context.Provider value={{ medias }}>{children}</Context.Provider>;
 }
 

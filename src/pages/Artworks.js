@@ -6,12 +6,14 @@ import { getClass } from '../utils';
 
 function Artworks() {
   const { medias } = useContext(Context);
-  console.log('Artworks() medias', medias);
+  // console.log('Artworks() medias', medias);
 
-  const res = medias.map((elem) => <Image key={elem.id} url={elem.url} />);
+  const res = medias.map((elem, i) => (
+    <Image key={elem.id} elem={elem} className={getClass(i)} />
+  ));
   return (
     <main className="artworks">
-      <h1>Artworks go here</h1>
+      {/* <h1>Artworks go here</h1> */}
       <div>{res}</div>
     </main>
   );
