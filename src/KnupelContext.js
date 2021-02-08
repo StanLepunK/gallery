@@ -10,15 +10,16 @@ ContextProvider.propTypes = {
 
 function ContextProvider({ children }) {
   const [medias, set_medias] = useState([]);
-  const address = '../../data/data.json';
+  const address =
+    'https://raw.githubusercontent.com/StanLepunK/gallery/master/data/data.json';
   useEffect(() => {
     fetch(address)
       .then((res) => res.json())
       .then((data) => set_medias(data));
   }, []);
 
-  console.log('medias', medias);
-  return <Context.Provider value={medias}>{children}</Context.Provider>;
+  console.log('ContextProvider() medias', medias);
+  return <Context.Provider value={{ medias }}>{children}</Context.Provider>;
 }
 
 // function ContextProvider(props) {

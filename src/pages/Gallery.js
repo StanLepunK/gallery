@@ -7,11 +7,7 @@ import Artworks from './Artworks';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Link, Switch, Route } from 'react-router-dom';
 
-import { ContextProvider, Context } from '../components/KnupelContext';
-
-function HomeGallery() {
-  return <h1>Home Page</h1>;
-}
+import { ContextProvider, Context } from '../KnupelContext';
 
 function Gallery() {
   const context = useContext(Context);
@@ -22,12 +18,8 @@ function Gallery() {
           <Header />
           <Switch>
             <Route exact path="/">
-              <HomeGallery />
-            </Route>
-            <Route path="/artworks">
               <Artworks />
             </Route>
-
             <Route path="/cart">
               <Cart />
             </Route>

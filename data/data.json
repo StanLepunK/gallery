@@ -1,12 +1,17 @@
 [
   {
-    "url": "/media/media_art/attaque_genetique/AttGen_4_60_37p5_TACA_AA_72.jpg",
+    "url": "https://raw.githubusercontent.com/StanLepunK/gallery/master/media/media_art/attaque_genetique/AttGen_13_60_AGAT_partiel_AA_72.jpg",
     "id": "1",
     "isFavorite": false
   },
   {
-    "url": "/media/media_art/attaque_genetique/AttGen_5_60_37p5_TTCG_AA_72.jpg",
+    "url": "https://raw.githubusercontent.com/StanLepunK/gallery/master/media/media_art/attaque_genetique/AttGen_13_60_75p5_CGTG_AA_72.jpg",
     "id": "2",
+    "isFavorite": false
+  },
+  {
+    "url": "https://raw.githubusercontent.com/StanLepunK/gallery/master/media/media_art/attaque_genetique/AttGen_4_60_37p5_TACA_AA_72.jpg",
+    "id": "3",
     "isFavorite": false
   }
 ]
