@@ -2,18 +2,20 @@ import React, { useContext } from 'react';
 
 import Image from '../components/Image';
 import { Context } from '../KnupelContext';
-import { getClass } from '../utils';
+import { get_size_image } from '../utils/utils_0';
 
 function Artworks() {
   const { medias } = useContext(Context);
   console.log('Artworks() medias', medias);
 
+  const { toggle_like } = useContext(Context);
+
   const res = medias.map((elem, i) => (
-    <Image key={elem.id} elem={elem} className={getClass(i)} />
+    // toggle_like(i);
+    <Image key={elem.id} elem={elem} className={get_size_image(i)} />
   ));
   return (
     <main className="artworks">
-      {/* <h1>Artworks go here</h1> */}
       <div>{res}</div>
     </main>
   );

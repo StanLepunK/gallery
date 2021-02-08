@@ -20,8 +20,23 @@ function ContextProvider({ children }) {
       .then((data) => set_medias(data));
   }, []);
 
+  function toggle_like(id) {
+    const update_all = medias.map((elem) => {
+      if (elem.id === id) {
+        console.log(id, !elem.isFavorite);
+        return { ...elem, isFavorite: !elem.isFavorite };
+      }
+      return elem;
+    });
+    set_medias(update_all);
+  }
+
   // console.log('ContextProvider() medias', medias);
-  return <Context.Provider value={{ medias }}>{children}</Context.Provider>;
+  return (
+    <Context.Provider value={{ medias, toggle_like }}>
+      {children}
+    </Context.Provider>
+  );
 }
 
 // function ContextProvider(props) {
