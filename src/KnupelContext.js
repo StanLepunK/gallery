@@ -10,6 +10,7 @@ ContextProvider.propTypes = {
 
 function ContextProvider({ children }) {
   const [medias, set_medias] = useState([]);
+  const [cart_items, set_cart_item] = useState([]);
   // const address =
   //   'https://raw.githubusercontent.com/StanLepunK/gallery/master/data/data.json';
   const address =
@@ -23,7 +24,6 @@ function ContextProvider({ children }) {
   function toggle_like(id) {
     const update_all = medias.map((elem) => {
       if (elem.id === id) {
-        console.log(id, !elem.isFavorite);
         return { ...elem, isFavorite: !elem.isFavorite };
       }
       return elem;
@@ -31,16 +31,61 @@ function ContextProvider({ children }) {
     set_medias(update_all);
   }
 
-  // console.log('ContextProvider() medias', medias);
+  function remove_items(id) {
+    let sub_is = false;
+    let index = -1;
+    for (index = 0; index < cart_items.length; index++) {
+      if (cart_items[index].id === id) {
+        sub_is = true;
+        break;
+      }
+    }
+    if (sub_is) {
+      cart_items.splice(index, 1);
+      console.log('remove item', cart_items.length);
+    }
+    set_cart_item(cart_items);
+    return sub_is;
+  }
+
+  function add_items(elem) {
+    let add_is = true;
+    for (let index = 0; index < cart_items.length; index++) {
+      if (cart_items[index].id === elem.id) {
+        add_is = false;
+        break;
+      }
+    }
+    if (add_is) {
+      cart_items.push(elem);
+      console.log('add item', cart_items.length);
+    }
+    set_cart_item(cart_items);
+  }
+
+  // style with arrow function I don't like it
+  // function add_items(elem) {
+  //   console.log('cart length', cart_items.length);
+  //   set_cart_item((prev_elem) => [...prev_elem, elem]);
+  // }
+
+  // function add_items(id) {
+  //   let time = new Date();
+  //   console.log('cart length', cart_items.length);
+  //   const all = medias.map((elem) => {
+  //     if (elem.id === id) {
+  //       console.log(id, time.getTime(), !elem.isFavorite);
+  //       cart_items.push(elem);
+  //     }
+  //   });
+  //   set_cart_item(cart_items);
+  // }
+
   return (
-    <Context.Provider value={{ medias, toggle_like }}>
+    <Context.Provider value={{ medias, toggle_like, add_items, remove_items }}>
       {children}
     </Context.Provider>
   );
 }
-
-// function ContextProvider(props) {
-//   return <Context.Provider value="">{props.children}</Context.Provider>;
-// }
 
 export { ContextProvider, Context };
