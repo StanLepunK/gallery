@@ -1,5 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
+
+import { useContext } from 'react';
 import { Context } from '../KnupelContext';
+
 import PropTypes from 'prop-types';
 
 Image.propTypes = {

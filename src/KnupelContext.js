@@ -82,7 +82,9 @@ function ContextProvider({ children }) {
   // }
 
   return (
-    <Context.Provider value={{ medias, toggle_like, add_items, remove_items }}>
+    <Context.Provider
+      value={{ cart_items, medias, toggle_like, add_items, remove_items }}
+    >
       {children}
     </Context.Provider>
   );
