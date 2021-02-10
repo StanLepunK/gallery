@@ -63,6 +63,10 @@ function ContextProvider({ children }) {
     set_cart_item(cart_items);
   }
 
+  function clear_cart() {
+    set_cart_item([]);
+  }
+
   // style with arrow function I don't like it
   // function add_items(elem) {
   //   console.log('cart length', cart_items.length);
@@ -83,7 +87,14 @@ function ContextProvider({ children }) {
 
   return (
     <Context.Provider
-      value={{ cart_items, medias, toggle_like, add_items, remove_items }}
+      value={{
+        cart_items,
+        medias,
+        toggle_like,
+        add_items,
+        remove_items,
+        clear_cart,
+      }}
     >
       {children}
     </Context.Provider>
