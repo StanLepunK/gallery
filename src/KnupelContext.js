@@ -32,21 +32,27 @@ function ContextProvider({ children }) {
   }
 
   function remove_items(id) {
-    let sub_is = false;
-    let index = -1;
-    for (index = 0; index < cart_items.length; index++) {
-      if (cart_items[index].id === id) {
-        sub_is = true;
-        break;
-      }
-    }
-    if (sub_is) {
-      cart_items.splice(index, 1);
-      console.log('remove item', cart_items.length);
-    }
-    set_cart_item(cart_items);
-    return sub_is;
+    let is = (elem) => elem.id !== id;
+    set_cart_item((prev_list) => prev_list.filter(is));
+    // set_cart_item((prev_list) => prev_list.filter((elem) => elem.id !== id));
   }
+
+  // function remove_items(id) {
+  //   let sub_is = false;
+  //   let index = -1;
+  //   for (index = 0; index < cart_items.length; index++) {
+  //     if (cart_items[index].id === id) {
+  //       sub_is = true;
+  //       break;
+  //     }
+  //   }
+  //   if (sub_is) {
+  //     cart_items.splice(index, 1);
+  //     console.log('remove item', cart_items.length);
+  //   }
+  //   set_cart_item(cart_items);
+  //   return sub_is;
+  // }
 
   function add_items(elem) {
     let add_is = true;

@@ -31,7 +31,7 @@ function Cart() {
       <h1>Check out</h1>
       {ret}
       <p className="total-cost">Total: : {total_ret}</p>
-      <Order />
+      {cart_items.length > 0 ? <Order /> : <div></div>}
     </main>
   );
 }
